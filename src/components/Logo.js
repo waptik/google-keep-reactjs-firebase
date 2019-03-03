@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
-import reactjs-logo from '../img/reactjs-logo.svg';
-import firebase-logo from '../img/firebase-logo.png';
-import keep-logo from '../img/keep-logo.png';
+import reactLogo from '../img/reactjs-logo.svg';
+import firebaseLogo from '../img/firebase-logo.png';
+import keepLogo from '../img/keep-logo.png';
 
 
 let logo = (args) => {
@@ -15,13 +15,13 @@ let logo = (args) => {
      * 3. k -> keep
      */
     if(args == "r") {
-        name = reactjs-logo;
+        name = reactLogo;
         text = "ReactJs Logo";
     } else if(args == "f") { 
-        name = firebase-logo;
+        name = firebaseLogo;
         text = "Firebase Logo";
     } else if (args == "k") {
-        name = keep-logo;
+        name = keepLogo;
         text = "Google Keep Logo";
     }
     
