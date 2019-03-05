@@ -1,0 +1,128 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-family: $ff-roboto;
+  font-size: $fz-base;
+  background-color: #f0f0f0;
+  color: $black;
+  line-height: 1.5;
+
+  &.freeze {
+    overflow: hidden;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $ff-product;
+  margin-top: 0;
+}
+
+a {
+  display: inline-block;
+  color: inherit;
+  text-decoration: none;
+  text-decoration-skip-ink: auto;
+  transition: $transition;
+}
+
+button {
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  transition: $transition;
+}
+
+input,
+textarea {
+  width: 100%;
+  display: block;
+  border: 0;
+  outline: 0;
+  margin: 0;
+  padding: 0;
+  font-size: $fz-base;
+  background-color: transparent;
+  &::placeholder {
+    color: $grey;
+    font-family: $ff-product;
+    font-weight: 700;
+    font-size: $fz-md;
+  }
+}
+
+input {
+  font-family: $ff-product;
+  font-weight: 700;
+  font-size: $fz-md;
+  margin-bottom: 10px;
+}
+
+textarea {
+  font-family: $ff-roboto;
+  resize: none;
+  line-height: 1.5;
+  min-height: 5em;
+  max-height: 50vh;
+  width: 100%;
+}
+
+ul,
+ol {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+svg {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+}
+
+img {
+  width: 100%;
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+p,
+pre {
+  margin: 0 0 10px;
+}
+
+#app {
+  padding: 50px 100px;
+
+  @include smallerThan850 {
+    padding: 50px;
+  }
+  @include smallerThan480 {
+    padding: 30px;
+  }
+  @include smallerThan330 {
+    padding: 20px;
+  }
+}

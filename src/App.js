@@ -1,25 +1,22 @@
+// eslint-disable-next-line
+
 import React, { Component } from 'react';
-import reactLogo from './img/reactjs-logo.svg';
-import './App.css';
+
+import Header from './components/Header';
+
+import './assets/styles/App.css';
+
+// notes components
+
+import AddNoteForm from './components/notes/AddNoteForm';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={reactLogo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div className="app">
+        <Header pageTitle="Hi" />
+
+        <AddNoteForm />
       </div>
     );
   }

@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
+// eslint-disable-next-line
+import React from 'react';
 
-import reactLogo from '../img/reactjs-logo.svg';
-import firebaseLogo from '../img/firebase-logo.png';
-import keepLogo from '../img/keep-logo.png';
+import reactLogo from '../assets/img/reactjs-logo.svg';
+import firebaseLogo from '../assets/img/firebase-logo.png';
+import keepLogo from '../assets/img/keep-logo.png';
 
 
 let logo = (args) => {
@@ -14,20 +15,24 @@ let logo = (args) => {
      * 2. r -> reactjs
      * 3. k -> keep
      */
-    if(args == "r") {
+    if(args === "r") {
         name = reactLogo;
         text = "ReactJs Logo";
-    } else if(args == "f") { 
+    } else if(args === "f") { 
         name = firebaseLogo;
         text = "Firebase Logo";
-    } else if (args == "k") {
+    } else if (args === "k") {
         name = keepLogo;
         text = "Google Keep Logo";
     }
     
-    return (
-        <img src={name} alt={text} />
-    );
+    //render() {
+        return (
+            <div>
+                <img src={name} alt={text} />
+            </div>
+        );
+    //}
 }
 
 export default logo;
