@@ -45,7 +45,7 @@ function AddNoteForm() {
         <div>
           <div className="create-form">
             <div className="backdrop"></div>
-            <form onSubmit={this.handleSubmit} className="create-note">
+            <form onSubmit={handleSubmit} className="create-note">
               <input
               type="text"
               name="title"
