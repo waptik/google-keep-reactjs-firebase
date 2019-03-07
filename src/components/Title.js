@@ -1,9 +1,21 @@
-// eslint-disable-next-line
+/* eslint-disable */
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types';
 
 // ref: https://stackoverflow.com/questions/46160461/how-do-you-set-the-document-title-in-react
 class Title extends Component {
+
+    static propTypes = {
+        pageTitle: PropTypes.string,
+        siteTitle: PropTypes.string,
+    };
+
+    static defaultProps = {
+        pageTitle: "Google Keep Clone with Firebase",
+        siteTitle: "Waptik",
+    };
+
     constructor(props) {
         super(props);
         this.titleEl = document.getElementsByTagName("title")[0]; // get content of title tag(<title></title>)
@@ -11,10 +23,15 @@ class Title extends Component {
 
     render() {
         let fullTitle;
-        if(this.props.pageTitle) {
-            fullTitle = this.props.siteTitle + " - " + this.props.pageTitle;
+
+        let { pageTitle, siteTitle } = this.props;
+        
+    console.log(pageTitle);
+
+        if(pageTitle) {
+            fullTitle = siteTitle + " - " + pageTitle;
         } else {
-            fullTitle = this.props.siteTitle;
+            fullTitle = siteTitle;
         }
 
         return ReactDOM.createPortal(
@@ -23,10 +40,5 @@ class Title extends Component {
         );
     }
 }
-
-Title.defaultProps = {
-    pageTitle: null,
-    siteTitle: "Waptik",
-};
 
 export default Title;

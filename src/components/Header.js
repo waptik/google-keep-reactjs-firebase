@@ -1,11 +1,13 @@
+/* eslint-disable */
 import React from 'react';
-import logo from './Logo';
+import Logo from './Logo';
 import Title from './Title';
 import ForkMe from './ForkMe';
 
 import '../assets/styles/App.css';
 
 function Header(props) {
+    console.log(props);
     return (
         <div>
 
@@ -16,19 +18,19 @@ function Header(props) {
                 
                 <div className="logos">
                     <span className="logo keep">
-                        { logo("k") }
+                        { Logo("k") }
                     </span>
 
                     <span className="plus"> + </span>
 
                     <span className="logo react">
-                        { logo("r") }
+                        { Logo("r") }
                     </span>
 
                     <span className="plus"> + </span>
 
                     <span className="logo firebase">
-                        { logo("f") }
+                        { Logo("f") }
                     </span>
                 </div>
             </header>

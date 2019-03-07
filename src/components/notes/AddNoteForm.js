@@ -1,34 +1,35 @@
-// eslint-disable-next-line
+/* eslint-disable */
 import React, { useState } from 'react';
 import { db } from '../../utils/firebase';
 
 
 // using react hooks here
 function AddNoteForm() {
-
     // declaring states
-    // eslint-disable-next-line
-    const [titleFieldVisible, setTitleFieldVisible] = useState(false);// eslint-disable-next-line
-    const [title, setTitle] = useState('');// eslint-disable-next-line
-    const [content, setContent] = useState('');// eslint-disable-next-line
+    
+    const [titleFieldVisible, setTitleFieldVisible] = useState(false);
+    const [title, setTitle] = useState('');
+    const [content, setContent] = useState('');
 
-    // eslint-disable-next-line
+    
     const showTitleField = () => {
         setTitleFieldVisible(true);
     };
 
-    // eslint-disable-next-line
+    
     const hideTitleField = ()  => {
         setTitleFieldVisible(false);
       };
 
     // submit form
-    // eslint-disable-next-line
-    const handleSubmit = (e) => {
+    
+    const handleSubmit = e => {
+      
+    e.preventDefault();
         
-        if(this.state.title || this.state.content) {
+        if(title || content) {
             db
-            .createNote(this.state.title.trim(), this.state.content.trim())
+            .createNote(title.trim(), content.trim())
             .then(
                 () => {
                     // reset all states
@@ -40,18 +41,22 @@ function AddNoteForm() {
             );
         } 
     }; // end of const
+    //<div className="backdrop" onClick={hideTitleField} />
 
     return (
         <div>
           <div className="create-form">
-            <div className="backdrop"></div>
             <form onSubmit={handleSubmit} className="create-note">
               <input
               type="text"
+              value={title}
+              onChange={e => setTitle(e.target.value)}
               name="title"
               placeholder="Title"
               />
               <textarea
+              value={content}
+              onChange={e => setContent(e.target.value)}
               name="content"
               placeholder="Take a note"
               />

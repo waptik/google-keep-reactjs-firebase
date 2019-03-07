@@ -18,8 +18,10 @@
 .env.development.local
 .env.test.local
 .env.production.local
-
+*.lock
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 README.old.md
+/src/assets/styles/_*
+/src/assets/styles/*.scss

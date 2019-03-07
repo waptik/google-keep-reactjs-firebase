@@ -1,4 +1,4 @@
-// eslint-disable-next-line
+/* eslint-disable */
 
 import React, { Component } from 'react';
 
@@ -9,14 +9,18 @@ import './assets/styles/App.css';
 // notes components
 
 import AddNoteForm from './components/notes/AddNoteForm';
+import AllNotes from './components/notes/AllNotes';
+import UpdateNoteModal from './components/notes/UpdateNoteModal';
 
 class App extends Component {
   render() {
     return (
       <div className="app">
-        <Header pageTitle="Hi" />
+        <Header pageTitle="Kill" />
 
         <AddNoteForm />
+        <AllNotes />
+        <UpdateNoteModal />
       </div>
     );
   }

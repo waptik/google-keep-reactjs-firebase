@@ -1,4 +1,3 @@
-// eslint-disable-next-line
 import React from 'react';
 
 import reactLogo from '../assets/img/reactjs-logo.svg';
@@ -6,7 +5,7 @@ import firebaseLogo from '../assets/img/firebase-logo.png';
 import keepLogo from '../assets/img/keep-logo.png';
 
 
-let logo = (args) => {
+let Logo = (args) => {
     let text, name; // variables for logo name and file extension
 
     /**
@@ -35,4 +34,4 @@ let logo = (args) => {
     //}
 }
 
-export default logo;
+export default Logo;
