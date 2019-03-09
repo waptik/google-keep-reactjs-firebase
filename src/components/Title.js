@@ -4,41 +4,35 @@ import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 
 // ref: https://stackoverflow.com/questions/46160461/how-do-you-set-the-document-title-in-react
-class Title extends Component {
+function Title ({ pageTitle, siteTitle}) {
 
-    static propTypes = {
-        pageTitle: PropTypes.string,
-        siteTitle: PropTypes.string,
-    };
+    const titleEl = document.getElementsByTagName("title")[0]; // get content of title tag(<title></title>)
 
-    static defaultProps = {
-        pageTitle: "Google Keep Clone with Firebase",
-        siteTitle: "Waptik",
-    };
-
-    constructor(props) {
-        super(props);
-        this.titleEl = document.getElementsByTagName("title")[0]; // get content of title tag(<title></title>)
-    }
-
-    render() {
-        let fullTitle;
-
-        let { pageTitle, siteTitle } = this.props;
+    let fullTitle;
         
-    console.log(pageTitle);
+    //console.log(pageTitle);
 
-        if(pageTitle) {
-            fullTitle = siteTitle + " - " + pageTitle;
-        } else {
-            fullTitle = siteTitle;
-        }
-
-        return ReactDOM.createPortal(
-            fullTitle || "",
-            this.titleEl
-        );
+    if(pageTitle) {
+        fullTitle = siteTitle + " - " + pageTitle;
+    } else {
+        fullTitle = siteTitle;
     }
+
+    return ReactDOM.createPortal(
+        fullTitle || "",
+        titleEl
+    );
 }
+
+
+Title.propTypes = {
+    pageTitle: PropTypes.string,
+    siteTitle: PropTypes.string,
+};
+
+Title.defaultProps = {
+    pageTitle: "",
+    siteTitle: "Waptik",
+};
 
 export default Title;

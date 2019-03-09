@@ -1,28 +1,27 @@
 /* eslint-disable */
-import React, { useState } from 'react';
-import PropTypes from 'prop-types'; // proptypes
+import React, { useState } from 'react'
+import PropTypes from 'prop-types' // proptypes
 
-import EditIcon from './icons/EditIcon';// edit icon
+import EditIcon from './icons/EditIcon'// edit icon
 
 
-function Note(props) {
+import Events from '../../utils/events' //eventbus
 
-    const propTypes = {
-        note: PropTypes.object.isRequired,
-    };
 
-    const selectNote = (e) => {
+function Note({ note, index }) {
 
+    const selectNote = (note) => {
+        Events.emit('note-selected', note)
     }
-    
-    const {note} = props;
 
+    const hasNotes = (note.title || note.content)
+    
     //console.log(note)
     
     return (
-        <div>
-            <div className="note" onClick={selectNote(note)}>
-                {(note.title || note.content) ? ( 
+        <div className="note" onClick={selectNote(note)}>
+                <EditIcon />
+                {hasNotes ? ( 
                         <div>
                             {note.title && 
                                 <h1>{note.title }</h1>
@@ -36,13 +35,13 @@ function Note(props) {
                         Empty Note
                     </div>
                 )}
-                {
-                    
-                }
-            </div>
         </div>
-    );
+    )
     
 }
 
-export default Note;
+Note.propTypes = {
+    note: PropTypes.object.isRequired,
+};
+
+export default Note

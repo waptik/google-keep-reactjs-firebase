@@ -6,14 +6,16 @@ import ForkMe from './ForkMe';
 
 import '../assets/styles/App.css';
 
-function Header(props) {
-    console.log(props);
+function Header({pageTitle}) {
+
+    //console.log(pageTitle);
+
     return (
         <div>
 
             <header>
                 <ForkMe />
-                <Title pageTitle={props.title} />
+                <Title pageTitle={pageTitle} />
                 <h1>Google Keep Clone by waptik</h1>
                 
                 <div className="logos">

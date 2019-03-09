@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const DeleteIcon = () => (
+const DeleteIcon = () => (
     <svg
     xmlns="http://www.w3.org/2000/svg"
     width="24"
@@ -11,3 +11,5 @@ export const DeleteIcon = () => (
     <path d="M0 0h24v24H0z" fill="none" />
   </svg>
 );
+
+export default DeleteIcon;
