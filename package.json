@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "dotenv-webpack": "^1.7.0",
     "firebase": "^5.8.5",
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
@@ -11,7 +12,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "webpack --config webpack.config.js react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
