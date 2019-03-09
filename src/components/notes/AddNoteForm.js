@@ -4,7 +4,7 @@ import { db } from '../../utils/firebase'
 
 
 // using react hooks here
-function AddNoteForm({ addNote }) {
+function AddNoteForm({ /* addNote */ }) {
     // declaring states
     
     const [titleFieldVisible, setTitleFieldVisible] = useState(false)
@@ -28,20 +28,20 @@ function AddNoteForm({ addNote }) {
     e.preventDefault()
         
         if(title || content) {
-            // db
-            // .createNote(title.trim(), content.trim())
-            // .then(
-            //     () => {
-            //         // reset all states
-            //         setTitle('')
-            //         setContent('')
-            //         setTitleFieldVisible('false')
-            //     },
-            //     e => console.log(e), // log any error in console
-            // )
+            db
+            .createNote(title.trim(), content.trim())
+            .then(
+                () => {
+                    // reset all states
+                    setTitle('')
+                    setContent('')
+                    setTitleFieldVisible('false')
+                },
+                e => console.log(e), // log any error in console
+            )
 
             // add offline
-            addNote(title, content)
+            //addNote(title, content)
             // reset all states
             setTitle('')
             setContent('')

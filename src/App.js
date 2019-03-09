@@ -30,17 +30,6 @@ function App () {
       autoExpand(event.target)
     }, false)
     
-    Events.on('note-selected', note => {
-      setShowModal(true)
-      setSelectedNote(note)
-      document.body.classList.remove('freeze')
-    })
-    
-    Events.on('modal-dismissed', () => {
-      setSelectedNote(null)
-      setShowModal(false)
-      document.body.classList.remove('freeze')
-    })
   }, []) // useEffect
   
   const handleUpdate = () => {
@@ -68,8 +57,10 @@ function App () {
         <Header pageTitle="Google Keep Clone With ReactJs + Firebase" />
   
         <AddNoteForm addNote={addNote} />
-  
-        <AllNotes handleUpdate={handleUpdate} notes={notes}/>
+
+        <AllNotes />
+
+        {/* <AllNotes handleUpdate={handleUpdate} notes={notes}/> */}
   
         {showModal &&
           <UpdateNoteModal note={selectedNote}/>
