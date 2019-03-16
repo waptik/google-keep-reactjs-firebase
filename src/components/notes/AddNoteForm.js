@@ -52,10 +52,12 @@ function AddNoteForm({ /* addNote */ }) {
     return (
         <div>
           <div className="create-form">
-            {titleFieldVisible && (
+            
+			{titleFieldVisible && (
               <div className="backdrop" onClick={hideTitleField} />
             )}
-            <form onSubmit={handleSubmit} className="create-note">
+            
+			<form onSubmit={handleSubmit} className="create-note">
               {titleFieldVisible && (
                 <input
                 type="text"
@@ -66,6 +68,7 @@ function AddNoteForm({ /* addNote */ }) {
                 placeholder="Title"
                 />
               )}
+			  
               <textarea
               value={content}
               onChange={e => setContent(e.target.value)}

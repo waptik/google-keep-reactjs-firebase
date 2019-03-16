@@ -2,9 +2,9 @@
 
 import React, { useState } from 'react'
 
-import { EventEmitter } from 'events'
+import Events from 'umitt'
 
-const Events = new EventEmitter();
+const Emitter = new Events();
     //console.log(Events)
 
-export default Events;
+export default Emitter;

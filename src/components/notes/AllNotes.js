@@ -6,7 +6,7 @@ import Note from './Note';
 import { db } from '../../utils/firebase'; // import firebase
 
 
-function AllNotes({ /* notes, handleUpdate */ }) {
+function AllNotes({ selected }) {
 
     //ref: https://scotch.io/tutorials/getting-started-with-react-hooks
 
@@ -34,9 +34,7 @@ function AllNotes({ /* notes, handleUpdate */ }) {
         <div className="notes">
         
             {notes.map((note, index) => (
-                
-                <Note key={index} index={index}  note={note} />
-                // <Note key={index} handleUpdate={handleUpdate} index={index}  note={note} />
+                <Note key={index} selected={selected} index={index} note={note} />
             ))}
         </div>
     );

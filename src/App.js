@@ -14,15 +14,31 @@ import UpdateNoteModal from './components/notes/UpdateNoteModal'
 // utilities
 
 import { autoExpand } from './utils'
-import Events from './utils/events'
+import Emitter from './utils/events'
 
 
 function App () {
+	
   const [notes, setNotes] = useState([])
   const [selectedNote, setSelectedNote] = useState(null)
   const [showModal, setShowModal] = useState(false)
 
+  const noteSelected = note => {
+    setShowModal(true)
+    setSelectedNote(note)
+    document.body.classList.remove('freeze')
+    console.log(note, ' is selected!');
+  }
+
+  const closeModal = () => {
+    setSelectedNote(null)
+    setShowModal(false)
+    document.body.classList.remove('freeze')
+    console.log('No note is selected and modal is not active!');
+  }
+
   useEffect(() => {
+    
     document.addEventListener('input', event => {
       if (event.target.tagName.toLowerCase() !== 'textarea') {
         return
@@ -32,38 +48,17 @@ function App () {
     
   }, []) // useEffect
   
-  const handleUpdate = () => {
-    Events.on('note-selected', note => {
-      setShowModal(true)
-      setSelectedNote(note)
-      document.body.classList.remove('freeze')
-    })
-    
-    Events.on('modal-dismissed', () => {
-      setSelectedNote(null)
-      setShowModal(false)
-      document.body.classList.remove('freeze')
-    })
-  } // handleUpdate
-  
-  const addNote = (title, content) => {
-    const newNotes = [...notes, {title, content}]
-    setNotes(newNotes)
-  } // addNote
-  
 
   return (
       <div className="app">
         <Header pageTitle="Google Keep Clone With ReactJs + Firebase" />
   
-        <AddNoteForm addNote={addNote} />
+        <AddNoteForm />
 
-        <AllNotes />
-
-        {/* <AllNotes handleUpdate={handleUpdate} notes={notes}/> */}
+        <AllNotes selected={noteSelected}/>
   
         {showModal &&
-          <UpdateNoteModal note={selectedNote}/>
+          <UpdateNoteModal modal={closeModal} note={selectedNote}/>
         }
       </div>
   )

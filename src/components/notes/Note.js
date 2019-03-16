@@ -1,26 +1,27 @@
 /* eslint-disable */
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types' // proptypes
 
 import EditIcon from './icons/EditIcon'// edit icon
 
 
-import Events from '../../utils/events' //eventbus
-
-
-function Note({ note, index }) {
-
-    const selectNote = (note) => {
-        Events.emit('note-selected', note)
-    }
+function Note({ note, index, selected }) {
 
     const hasNotes = (note.title || note.content)
+
+    const editNote = () => {
+        selected(note)
+    }
     
     //console.log(note)
     
     return (
-        <div className="note" onClick={selectNote(note)}>
-                <EditIcon />
+        <div className="note" index={index}>
+			<div
+				onClick={editNote}
+			>
+				<EditIcon />
+            </div>
                 {hasNotes ? ( 
                         <div>
                             {note.title && 

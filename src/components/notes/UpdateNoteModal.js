@@ -2,20 +2,19 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types' // proptypes
 
+import { db } from '../../utils/firebase'; // import firebase
+
+
 import DeleteIcon from './icons/DeleteIcon'// delete icon
 
 
-import Events from '../../utils/events' //eventbus
-
-
-function UpdateNoteModal({note, index}) {
+function UpdateNoteModal({note, index, modal}) {
 
     //state
     const [mutableNote, setMutableNote] = useState(note)
-
-    const dismissModal = () => {
-        Events.emit('modal-dismissed');
-    }
+    const [id, setId] = useState(mutableNote.id);
+	const [title, setTitle] = useState(mutableNote.title);
+	const [content, setContent] = useState(mutableNote.content);
 
     //stop propagation
     const stopPropagation = e => {
@@ -26,17 +25,14 @@ function UpdateNoteModal({note, index}) {
     const handleSubmit = e => {
       
     e.preventDefault()
-        
-      const id = mutableNote.id;
-      const title = mutableNote.title;
-      const content = mutableNote.content;
-
+	
       db.updateNote(
         id,
         title,
         content,
         () => {
-          dismissModal();
+          modal
+		  console.log('note updated')
         },
         err => {
           console.error(err);
@@ -49,12 +45,13 @@ function UpdateNoteModal({note, index}) {
     e.preventDefault()
         
         
-      const id = mutableNote.id;
+      //const id = mutableNote.id;
 
       if (window.confirm('Do you really want to delete this note?')) {
         db.deleteNote(id).then(
           () => {
-            this.dismissModal();
+            modal
+		  console.log('note deleted')
           },
           err => {
             console.error(err);
@@ -66,9 +63,9 @@ function UpdateNoteModal({note, index}) {
     return (
         <div>
             {note && (
-                <div className="modal-backdrop" onClick={dismissModal}>
+                <div className="modal-backdrop" onClick={modal}>
                     <div
-                    class="modal"
+                    className="modal"
                     role="dialog"
                     aria-labelledby="modalTitle"
                     aria-describedby="modalContent"
@@ -80,28 +77,30 @@ function UpdateNoteModal({note, index}) {
                         >
                             <input
                             id="modalTitle"
-                            v-model="mutableNote.title"
-                            name="title"
+                            onChange={e => setTitle(e.target.value)}
+							name="title"
+                            value={title}
                             placeholder="Title"
                             />
                 
                             <textarea
                             id="modalContent"
-                            value={mutableNote.content}
+                            onChange={e => setContent(e.target.value)}
+							value={content}
                             name="content"
                             placeholder="Add a note..."
                             rows="8"
                             />
-                
-                            <footer class="modal-footer">
+							
+                            <footer className="modal-footer">
                             <button
                                 onClick={handleDelete}
                                 type="button"
-                                class="delete-button"
+                                className="delete-button"
                             >
                                 <DeleteIcon />
                             </button>
-                            <button type="submit" class="submit-button">
+                            <button type="submit" className="submit-button">
                                 <span>Done</span>
                             </button>
                             </footer>
