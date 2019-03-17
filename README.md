@@ -1,70 +1,77 @@
-# Google Keep Clone with ReactJS and Firebase (https://gkeep-react.netlify.com/)
+# Google Keep Clone with ReactJS and Firebase
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+![screenshots of web app](./.github/readme-images/mobile-screens.jpg)
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+Features include:
+* Adding of notes which are then saved to firebase database on the cloud
+* Fetching and Listing notes from firebase
+* Edit/Update any selected notes on the go
+* Delete any selected notes
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Live demo
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+You first need to have internet connection.
+* For local demo, clone the repo on your machine by issuing these commands on your command prompt:
+    * `git clone https://github.com/waptik/google-keep-reactjs-firebase.git`
+    * `cd google-keep-reactjs-firebase`
+    * `yarn start` or `npm start` and a new tab will automatically open in your browser. If not, just open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-### `npm test`
+* For online demo, Open [https://gkeep-react.netlify.com/](https://gkeep-react.netlify.com/) to view it in the browser.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Issues, Feature Requests, and Contributing
 
-### `npm run build`
+Please make sure to read the full guidelines. Your issue may be closed without warning if you do not.
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<details><summary>Issues</summary>
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+1. **Before reporting a new issue, browse through the [issues](https://github.com/waptik/google-keep-reactjs-firebase/issues) to see if your similar issue hasn't been in existance.**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+</details>
 
-### `npm run eject`
+<details><summary>Bugs</summary>
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+* Kindly write an indepth description of the bug alongside a demonstration(image/video) for better understanding.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+</details>
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+<details><summary>Feature Requests</summary>
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+* Write a detailed issue, explaning what it should do or how.
+* Include screenshot (if needed)
+</details>
 
-## Learn More
+<details><summary>Contribution</summary>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+* Fork the repo then clone the forked version locally.
+* Do your modifications in the `dev` branch (if not existant, kindly create a new one).
+* Ensure that your version is totally working at your end.
+* Send a PR(Pull Request)
+</details>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## FAQ
 
-### Code Splitting
+Coming Soon
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+## License
 
-### Analyzing the Bundle Size
+    Copyright 2019 Stephane Mensah
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
 
-### Making a Progressive Web App
+    http://www.apache.org/licenses/LICENSE-2.0
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
 
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## Disclaimer
+* Part of the css stylesheet was taken from [https://github.com/bchiang7/google-keep-vue-firebase](https://github.com/bchiang7/google-keep-vue-firebase)
+* We do not have any affiliation with companies mentionned.
