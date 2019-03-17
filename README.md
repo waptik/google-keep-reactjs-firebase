@@ -13,7 +13,7 @@ Features include:
 * Delete any selected notes
 
 ## Live demo
-
+* A video demonstration is at [https://youtu.be/hD6xC7fRhOw](https://youtu.be/hD6xC7fRhOw)
 You first need to have internet connection.
 * For local demo, clone the repo on your machine by issuing these commands on your command prompt:
     * `git clone https://github.com/waptik/google-keep-reactjs-firebase.git`
