@@ -14,7 +14,6 @@ import UpdateNoteModal from './components/notes/UpdateNoteModal'
 // utilities
 
 import { autoExpand } from './utils'
-import Emitter from './utils/events'
 
 
 function App () {
@@ -26,15 +25,13 @@ function App () {
   const noteSelected = note => {
     setShowModal(true)
     setSelectedNote(note)
-    document.body.classList.remove('freeze')
     console.log(note, ' is selected!');
   }
 
   const closeModal = () => {
-    setSelectedNote(null)
     setShowModal(false)
-    document.body.classList.remove('freeze')
-    console.log('No note is selected and modal is not active!');
+    setSelectedNote(null)
+	console.log('No note is selected and modal is not active!<br>Show Modal: ', showModal);
   }
 
   useEffect(() => {

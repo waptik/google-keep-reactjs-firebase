@@ -15,6 +15,11 @@ function UpdateNoteModal({note, index, modal}) {
     const [id, setId] = useState(mutableNote.id);
 	const [title, setTitle] = useState(mutableNote.title);
 	const [content, setContent] = useState(mutableNote.content);
+	
+	// close modal
+    const dismissModal = () => {
+      modal()
+    }
 
     //stop propagation
     const stopPropagation = e => {
@@ -31,7 +36,7 @@ function UpdateNoteModal({note, index, modal}) {
         title,
         content,
         () => {
-          modal
+          dismissModal()
 		  console.log('note updated')
         },
         err => {
@@ -50,7 +55,7 @@ function UpdateNoteModal({note, index, modal}) {
       if (window.confirm('Do you really want to delete this note?')) {
         db.deleteNote(id).then(
           () => {
-            modal
+            dismissModal()
 		  console.log('note deleted')
           },
           err => {
@@ -63,7 +68,11 @@ function UpdateNoteModal({note, index, modal}) {
     return (
         <div>
             {note && (
-                <div className="modal-backdrop" onClick={modal}>
+                <div 
+					className="modal-backdrop"
+					onClick={dismissModal}
+					id="modalBox"
+				>
                     <div
                     className="modal"
                     role="dialog"
