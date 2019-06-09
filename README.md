@@ -1,5 +1,7 @@
 # Google Keep Clone with ReactJS and Firebase
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/waptik/google-keep-reactjs-firebase.svg)](https://greenkeeper.io/)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ![screenshots of web app](./.github/readme-images/mobile-screens.jpg)
